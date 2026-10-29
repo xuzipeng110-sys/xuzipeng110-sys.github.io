@@ -1,0 +1,9 @@
+<!doctype html><html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>OAuth Callback</title>
+<style>body{font-family:sans-serif;max-width:900px;margin:30px auto;padding:0 16px}.box{font-family:monospace;font-size:22px;word-break:break-all;user-select:all;background:#f3f3f3;border:2px solid #333;padding:16px;border-radius:8px;margin:8px 0 24px}h2{margin-bottom:4px}button{font-size:18px;padding:8px 16px}</style></head>
+<body><h1>Tesla OAuth 回调 / Callback</h1>
+<h2>code</h2><div id="code" class="box"></div><button onclick="navigator.clipboard.writeText(document.getElementById('code').textContent)">复制 code / Copy code</button>
+<h2>完整 URL / Full URL</h2><div id="url" class="box"></div><button onclick="navigator.clipboard.writeText(location.href)">复制 URL / Copy URL</button>
+<h2 id="errh" style="display:none;color:#b00">error</h2><div id="err" class="box" style="display:none"></div>
+<script>var p=new URLSearchParams(location.search);document.getElementById('code').textContent=p.get('code')||'(no code parameter)';document.getElementById('url').textContent=location.href;
+if(p.get('error')){document.getElementById('errh').style.display='';var e=document.getElementById('err');e.style.display='';e.textContent=p.get('error')+': '+(p.get('error_description')||'');}</script>
+</body></html>
